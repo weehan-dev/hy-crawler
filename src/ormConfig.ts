@@ -1,8 +1,6 @@
 import {ConnectionOptions} from 'typeorm';
 
-import config from './config';
-
-const configs = config();
+import configs from './config';
 
 const ormConfig: ConnectionOptions = {
   host: configs.DB.HOST,

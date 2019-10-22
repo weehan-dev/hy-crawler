@@ -4,15 +4,29 @@
   "description": "Hanyang kakao chatbot lambda crawler",
   "main": "index.js",
   "author": "changhoi",
-  "license": "GPL",
+  "scripts": {
+    "dev": "ts-node src/index.ts"
+  },
   "dependencies": {
+    "@types/nightmare": "^2.10.4",
+    "axios": "^0.19.0",
+    "cheerio": "^1.0.0-rc.3",
     "dotenv": "^8.2.0",
+    "iconv": "^2.3.5",
     "nightmare": "^3.0.2",
     "pg": "^7.12.1",
     "reflect-metadata": "^0.1.13",
+    "source-map-support": "^0.5.10",
     "typeorm": "^0.2.20"
   },
   "devDependencies": {
-    "@types/node": "^12.11.1"
+    "@types/aws-lambda": "^8.10.17",
+    "@types/axios": "^0.14.0",
+    "@types/cheerio": "^0.22.13",
+    "@types/node": "^12.11.1",
+    "serverless-webpack": "^5.2.0",
+    "ts-loader": "^5.3.3",
+    "typescript": "^3.2.4",
+    "webpack": "^4.29.0"
   }
 }

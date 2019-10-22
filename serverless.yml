@@ -1,0 +1,13 @@
+service: hy-crawler
+
+plugins:
+  - serverless-webpack
+
+provider:
+  name: aws
+  runtime: nodejs10.x
+  region: ap-northeast-2
+
+functions:
+  diet:
+    handler: dist/cronjob.diet

@@ -1,3 +1,3 @@
-import loader from './loaders';
+import dietCrawler from './services/dietCrawler';
 
-loader().then(() => {});
+dietCrawler();
