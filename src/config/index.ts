@@ -1,13 +1,11 @@
-import dotenv from 'dotenv';
-import path from 'path';
-import URLS from './urls';
+import dotenv from "dotenv";
+import path from "path";
+import URLS from "./urls";
 
-type DatabaseType = 'postgres' | 'mysql';
-const ENV = process.env.ENV ? process.env.ENV : 'dev';
-const config = dotenv.config({
-  path: path.join(__dirname, '..', '..', `${ENV}.env`)
-});
-if (!config) throw new Error('No env');
+type DatabaseType = "postgres" | "mysql";
+const ENV = process.env.ENV ? process.env.ENV : "dev";
+const config = dotenv.config();
+if (!config) throw new Error("No env");
 
 export default {
   ENV,

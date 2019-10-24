@@ -1,4 +1,4 @@
-import {Entity, PrimaryGeneratedColumn, Column, Index} from 'typeorm';
+import { Entity, PrimaryGeneratedColumn, Column, Index } from "typeorm";
 
 export enum When {
   TODAY,
@@ -10,10 +10,10 @@ export enum When {
 }
 
 export interface IDiet {
-  imageUrl: string;
-  mealKor: string;
-  mealEng: string;
-  price: number;
+  imageUrl?: string;
+  mealKor?: string;
+  mealEng?: string;
+  price?: string;
 }
 
 @Entity()
@@ -22,17 +22,20 @@ class Diet {
   id: number;
 
   @Index()
-  @Column({type: 'smallint', enum: When})
+  @Column({ type: "smallint", enum: When })
   afterDay: number;
 
-  @Column({type: 'varchar'})
+  @Column({ type: "timestamp" })
+  date: string; // YYYY-MM-DD
+
+  @Column({ type: "varchar" })
   restaurant: string;
 
-  @Column({type: 'varchar', length: 15})
-  types: string; // 분식? 중식? 석식? ...
+  @Column({ type: "varchar", length: 15 })
+  type: string; // 분식? 중식? 석식? ...
 
-  @Column({type: 'json', nullable: true})
-  diets: IDiet[];
+  @Column({ type: "text", nullable: true })
+  diets: string;
 }
 
 export default Diet;

@@ -1,6 +1,6 @@
-import {ConnectionOptions} from 'typeorm';
+import { ConnectionOptions } from "typeorm";
 
-import configs from './config';
+import configs from "./config";
 
 const ormConfig: ConnectionOptions = {
   host: configs.DB.HOST,
@@ -10,9 +10,11 @@ const ormConfig: ConnectionOptions = {
   database: configs.DB.DATABASE,
   username: configs.DB.USERNAME,
   password: configs.DB.PASSWORD,
-  synchronize: configs.ENV === 'dev',
-  logging: ['error'],
-  entities: [__dirname + '/models/entities/*']
+  synchronize: configs.ENV === "dev",
+  logging: ["error", "log"],
+  entities: [__dirname + "/models/entities/*"],
+  migrations: [__dirname + "/models/migrations/*"],
+  cli: { migrationsDir: "models/migrations" }
 };
 
 export default ormConfig;

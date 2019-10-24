@@ -1,17 +1,19 @@
 export default {
   SOURCE: {
+    BASE_URL: "www.hanyang.ac.kr",
+    NO_IMAGE: "/html-repositories/images/custom/food/no-img.jpg",
     DIET: {
-      학생식당: 'https://www.hanyang.ac.kr/web/www/re1',
-      교직원식당: 'https://www.hanyang.ac.kr/web/www/re2',
-      사랑방: 'https://www.hanyang.ac.kr/web/www/re3',
-      신교직원식당: 'https://www.hanyang.ac.kr/web/www/re4',
-      신학생식당: 'https://www.hanyang.ac.kr/web/www/re5',
-      제1생활관식당: 'https://www.hanyang.ac.kr/web/www/re6',
-      제2생활관식당: 'https://www.hanyang.ac.kr/web/www/re7',
-      행원파크: 'https://www.hanyang.ac.kr/web/www/re8'
+      학생식당: "https://www.hanyang.ac.kr/web/www/re1",
+      교직원식당: "https://www.hanyang.ac.kr/web/www/re2",
+      사랑방: "https://www.hanyang.ac.kr/web/www/re3",
+      신교직원식당: "https://www.hanyang.ac.kr/web/www/re4",
+      신학생식당: "https://www.hanyang.ac.kr/web/www/re5",
+      제1생활관식당: "https://www.hanyang.ac.kr/web/www/re6",
+      제2생활관식당: "https://www.hanyang.ac.kr/web/www/re7",
+      행원파크: "https://www.hanyang.ac.kr/web/www/re8"
     },
-    SCHEDULE: 'https://www.hanyang.ac.kr/web/www/-33',
-    LIBRARY: 'https://lib.hanyang.ac.kr/#/smuf/seat/status'
+    SCHEDULE: "https://www.hanyang.ac.kr/web/www/-33",
+    LIBRARY: "https://lib.hanyang.ac.kr/#/smuf/seat/status"
   },
   QUERY: {
     DIET: {
