@@ -1,4 +1,4 @@
-import {Entity, PrimaryGeneratedColumn, Column} from 'typeorm';
+import { Entity, PrimaryGeneratedColumn, Column, Index } from "typeorm";
 
 /**
  * 열람실 좌석 정보
@@ -10,19 +10,20 @@ class Library {
   @PrimaryGeneratedColumn()
   id: number;
 
-  @Column({type: 'varchar', length: 30})
+  @Index()
+  @Column({ type: "varchar", length: 30 })
   location: string;
 
-  @Column({type: 'smallint'})
+  @Column({ type: "smallint" })
   wholeSeat: number;
 
-  @Column({type: 'smallint'})
+  @Column({ type: "smallint" })
   usingSeat: number;
 
-  @Column({type: 'smallint'})
+  @Column({ type: "smallint" })
   leftSeat: number;
 
-  @Column({type: 'double precision'})
+  @Column({ type: "double precision" })
   usagePercentage: number;
 }
 

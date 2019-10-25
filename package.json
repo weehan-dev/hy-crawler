@@ -8,12 +8,12 @@
     "dev": "ts-node src/index.ts"
   },
   "dependencies": {
-    "@types/nightmare": "^2.10.4",
     "axios": "^0.19.0",
     "cheerio": "^1.0.0-rc.3",
     "dotenv": "^8.2.0",
     "moment": "^2.24.0",
     "moment-timezone": "^0.5.27",
+    "nightmare": "^3.0.2",
     "pg": "^7.12.1",
     "reflect-metadata": "^0.1.13",
     "source-map-support": "^0.5.10",
@@ -25,6 +25,7 @@
     "@types/cheerio": "^0.22.13",
     "@types/moment": "^2.13.0",
     "@types/moment-timezone": "^0.5.12",
+    "@types/nightmare": "^2.10.4",
     "@types/node": "^12.11.1",
     "serverless-webpack": "^5.2.0",
     "ts-loader": "^5.3.3",

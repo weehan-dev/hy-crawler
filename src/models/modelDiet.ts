@@ -47,12 +47,14 @@ class DietModel {
     try {
       const existDiets = await this.db.findOne({
         afterDay: data.afterDay,
-        restaurant: data.restaurant
+        restaurant: data.restaurant,
+        type: data.type
       });
-      console.log(existDiets);
       if (!existDiets) throw new Error("create new");
-      if (utils.isDietsChanged(existDiets, data))
+      if (utils.isDietsChanged(existDiets, data)) {
         await this.db.update(existDiets, data);
+      }
+
       return { result: false };
     } catch (e) {
       console.log(e.message);

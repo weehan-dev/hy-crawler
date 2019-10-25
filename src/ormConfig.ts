@@ -11,7 +11,7 @@ const ormConfig: ConnectionOptions = {
   username: configs.DB.USERNAME,
   password: configs.DB.PASSWORD,
   synchronize: configs.ENV === "dev",
-  logging: ["error", "log"],
+  logging: ["error", "schema", "log"],
   entities: [__dirname + "/models/entities/*"],
   migrations: [__dirname + "/models/migrations/*"],
   cli: { migrationsDir: "models/migrations" }
