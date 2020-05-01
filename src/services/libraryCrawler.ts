@@ -1,12 +1,10 @@
-import configs from "../config";
-import coreUtils from "../utils";
-import modelLibrary from "../models/modelLibrary";
-import libraryCrawlingUtils from "../utils/libraryCrawlingUtils";
-import { LibrarySelect } from "src/types/entity";
-import Nightmare from "nightmare";
-const nightmare = new Nightmare();
+import axios from 'axios';
+import configs from '../config';
+import modelLibrary from '../models/modelLibrary';
+import { ILibraryResponse } from '../interfaces/ILibraryResponse';
+
 const {
-  URLS: { SOURCE }
+    URLS: { SOURCE },
 } = configs;
 
 /**
@@ -14,29 +12,17 @@ const {
  */
 
 export default {
-  getLibraryStatus: async function(): Promise<LibrarySelect[]> {
-    const url = SOURCE.LIBRARY;
-    const rowSelector = "tr.ikc-item";
-    await nightmare
-      .goto(url)
-      .wait(".ikc-tablelist.ikc-seat-status tr.ikc-item")
-      .evaluate((selector: string) => {
-        const rows = document.querySelector(selector);
-      }, rowSelector);
+    getLibraryStatus: async function (): Promise<ILibraryResponse[]> {
+        const url = SOURCE.LIBRARY;
+        const {
+            data: {
+                data: { list },
+            },
+        }: { data: { data: { list: [ILibraryResponse] } } } = await axios.get(url);
+        return list;
+    },
 
-    const $ = await coreUtils.getCheerioObject(url);
-    const ret = [];
-    libraries.map((idx, ele) => {
-      console.log($(ele).text());
-      const nowData = libraryCrawlingUtils.getDataFromRow(ele, $);
-      console.log(nowData);
-      ret.push(nowData);
-    });
-
-    return ret;
-  },
-
-  updateLibraryData: async function(newData: LibrarySelect): Promise<void> {
-    await modelLibrary().createOrOverwrite(newData);
-  }
+    updateLibraryData: async function (newData: ILibraryResponse): Promise<void> {
+        await modelLibrary().createOrOverwrite(newData);
+    },
 };
