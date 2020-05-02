@@ -13,7 +13,7 @@ export default {
       행원파크: "https://www.hanyang.ac.kr/web/www/re8"
     },
     SCHEDULE: "https://www.hanyang.ac.kr/web/www/-33",
-    LIBRARY: "https://lib.hanyang.ac.kr/#/smuf/seat/status"
+    LIBRARY: "https://lib.hanyang.ac.kr/smufu-api/pc/1/rooms-at-seat"
   },
   QUERY: {
     DIET: {

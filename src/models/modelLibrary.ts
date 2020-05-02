@@ -1,6 +1,7 @@
 import Library from "./entities/Library.entity";
-import { getRepository, Repository, DeepPartial } from "typeorm";
+import { getRepository, Repository } from "typeorm";
 import { ModelBoolReturn } from "../types/model";
+import { ICrawler } from "../interfaces/ICrawler";
 
 class LibraryModel {
   private db: Repository<Library>;
@@ -15,18 +16,23 @@ class LibraryModel {
     return this;
   }
 
-  async createOrOverwrite(
-    data: DeepPartial<Library>
-  ): Promise<ModelBoolReturn> {
+  async createOrOverwrite(data: ICrawler): Promise<ModelBoolReturn> {
+    const argument = {
+      location: data.name,
+      wholeSeat: data.activeTotal,
+      usingSeat: data.occupied,
+      leftSeat: data.available,
+      usagePercentage: (data.occupied / data.available) * 100
+    };
     try {
-      const existLibrary = await this.db.findOne({ location: data.location });
+      const existLibrary = await this.db.findOne({ location: data.name });
       if (!existLibrary) throw new Error("create new");
 
-      await this.db.update(existLibrary, data);
+      await this.db.update(existLibrary, argument);
       return { result: false };
     } catch (e) {
       console.log(e.message);
-      const newLibrary = await this.db.create(data);
+      const newLibrary = this.db.create(argument);
       await this.db.save(newLibrary);
       return { result: true };
     }
